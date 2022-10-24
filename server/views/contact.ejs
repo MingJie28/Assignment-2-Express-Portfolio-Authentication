@@ -1,0 +1,53 @@
+<!-- contact.ejs, Ming Jie Wang, 301188372, Oct.2,2022 -->
+<!-- contact me page -->
+<%- include partials/header.ejs %>
+
+  <%- include partials/side_nav.ejs %>
+
+
+    <!-- Main Content -->
+    <main class="container">
+      <div class="jumbotron">
+        <h1 class="display-4">Welcome to my <%= title %> page</h1>
+        <h5 class="text">
+          You can directly email me at jwang346@my.centennialcollege.ca
+          <br><br>
+          OR
+          <br><br>
+          <form>
+
+            <h3>Contact Information</h3>
+            <!-- interactive section where user can input text -->
+            <fieldset>
+              <h5><b>First Name:
+                  <input type="text" id="fn" placeholder="First Name">
+                </b></h5>
+
+              <h5><b>Last Name:
+                  <input type="text" id="ln" placeholder="Last Name">
+                </b></h5>
+
+              <h5><b>Email:
+                  <input type="text" id="email" placeholder="Email">
+                </b></h5>
+
+              <h5><b>Phone Number:
+                  <input type="text" id="phone" placeholder="Phone Number">
+                </b></h5>
+
+              <p><b>Comments
+                  <textarea id="other" name="other" rows="4" cols="80%"></textarea>
+                  <center>
+                    <button type="button" onclick="window.open('/home', '_self')">
+                      Submit
+                    </button>
+                  </center>
+            </fieldset>
+          </form>
+        </h5>
+      </div>
+    </main>
+
+    <%- include partials/bottom_nav.ejs %>
+
+      <%- include partials/footer.ejs %>

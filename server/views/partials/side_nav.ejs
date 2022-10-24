@@ -1,0 +1,79 @@
+<!-- side_nav.ejs, Ming Jie Wang, 301188372, Oct.2,2022 -->
+<!-- side navigation -->
+<!-- top design -->
+<nav class="navbar navbar-inverse navbar-global navbar-fixed-top fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+        <a class="navbar-brand" href="/"><h2><img src=".\Assets\images\logo.png" class="logo">COMP229</h2></a>
+        </div>
+      </div>
+    </nav>
+<nav class="navbar-primary">
+
+<!-- navigation menu on side -->
+  <ul class="navbar-primary-menu">
+
+  <!-- navigation pages and logos -->
+    <% if (title == "Home"){ %>
+        <li class="nav-item active">
+        <% } else  { %>
+        <li class="nav-item">
+        <% } %>
+          <h4><a class="nav-link" href="/home"><i class="fas fa-lg fa-laptop-house nav_colour"> Home </i></a></h4>
+        </li>
+
+        <% if (title == "About") { %>
+        <li class="nav-item active">
+        <% } else  { %>
+        <li class="nav-item">
+        <% } %>
+          <h4><a class="nav-link" href="/about"><i class="fas fa-info-circle nav_colour"> About </i></a></h4>
+        </li>
+
+        <% if (title == "Projects") { %>
+        <li class="nav-item active">
+        <% } else  { %>
+        <li class="nav-item">
+        <% } %>
+          <h4><a class="nav-link" href="/projects"><i class="fab fa-elementor nav_colour"> Projects </i></a></h4>
+        </li>
+
+        <% if (title == "Services") { %>
+        <li class="nav-item active">
+        <% } else  { %>
+        <li class="nav-item">
+        <% } %>
+          <h4><a class="nav-link" href="/services"><i class="fas fa-cogs nav_colour"> Services </i></a></h4>
+        </li>
+
+        <% if (title == "Contact") { %>
+        <li class="nav-item active">
+        <% } else  { %>
+        <li class="nav-item">
+        <% } %>
+          <h4><a class="nav-link" href="/contact"><i class="fas fa-mobile-alt nav_colour"> Contact </i></a></h4>
+        </li>
+
+        <% if (title == "Books") { %>
+        <li class="nav-item active">
+        <% } else  { %>
+        <li class="nav-item">
+        <% } %>
+          <h4><a class="nav-link" href="/book-list"><i class="fas fa-book nav_colour"> Books </i></a></h4>
+        </li>
+
+
+        <li class="nav-item">
+        <% if(typeof displayName == 'string' && displayName) { %>
+          <h6><li class="navbar-text"><i class="fas fa-lg fa-user nav_colour"> Welcome, <%= displayName %></i></li></h6>
+          <a href="/logout" class="nav-link nav_colour">
+            <h4><i class="fas fa-lg fa-sign-out-alt"> Logout</a></i></h4>
+        <% } else { %>
+          <a href="/login" class="nav-link nav_colour">
+            <h4><i class="fas fa-lg fa-sign-in-alt"> Login</a></i></h4>
+        <% } %>
+        </li>
+
+
+  </ul>
+</nav>

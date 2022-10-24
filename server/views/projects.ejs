@@ -1,0 +1,53 @@
+<!-- projects.ejs, Ming Jie Wang, 301188372, Oct.2,2022 -->
+<!-- Projects page -->
+<%- include partials/header.ejs %>
+
+<%- include partials/main_nav.ejs %>
+  
+
+  <!-- Main Content -->
+  <main class="container">
+    <div class="jumbotron">
+      <h1 class="display-4">Welcome to my <%= title %> page</h1>
+      <h6 class="text">
+        <!-- create table for design -->
+        <table>
+          <tr>
+            <!-- images and text -->
+            <td><img src="./Assets/images/Project1.png" class="project"></td>
+            <td>
+              This was my first game end-term project in Semester 1.
+              The game is called Abduction of Tobias. I was the main programmer for the project. Since it was
+              my first project, there are still a lot of issues in the game.
+            </td>
+          </tr>
+          <tr>
+            <td><img src="./Assets/images/Project2.png" class="project"></td>
+            <td>
+              This was my first homework in my game programming class.
+              I had to create a whole Breakout game from scratch. There
+              are 3 levels in total. I got full marks in this project.
+            </td>
+          </tr>
+          <tr>
+            <td><img src="./Assets/images/Project3.png" class="project"></td>
+            <td>
+              This was my second homework in my game programming class.
+              I had to create a Pong game with powerups and obstacles.
+              I got full marks in this project as well.
+            </td>
+          </tr>
+        </table>
+      </h6>
+
+    </div>
+  </main>
+  
+<%- include partials/bottom_nav.ejs %>  
+
+<%- include partials/footer.ejs %>
+  
+
+
+
+

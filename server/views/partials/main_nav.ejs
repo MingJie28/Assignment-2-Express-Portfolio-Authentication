@@ -1,0 +1,79 @@
+<!-- main_nav.ejs, Ming Jie Wang, 301188372, Oct.2,2022 -->
+<!-- Main Navigation -->
+<!--make nav fixed on screen and change colour -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-secondary fixed-top">
+    <a class="navbar-brand" href="/"><h2>COMP229
+        <!-- logo -->
+        <img src=".\Assets\images\logo.png" class="logo"></h2>
+    </a>
+
+    <!-- button that appear when screen is small -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+            
+          <!-- navigation pages and logos -->
+        <% if (title == "Home"){ %>
+        <li class="nav-item active">
+        <% } else  { %>
+        <li class="nav-item">
+        <% } %>
+          <h4><a class="nav-link" href="/home"><i class="fas fa-lg fa-laptop-house nav_colour"> Home </i></a></h4>
+        </li>
+
+        <% if (title == "About") { %>
+        <li class="nav-item active">
+        <% } else  { %>
+        <li class="nav-item">
+        <% } %>
+          <h4><a class="nav-link" href="/about"><i class="fas fa-info-circle nav_colour"> About </i></a></h4>
+        </li>
+
+        <% if (title == "Projects") { %>
+        <li class="nav-item active">
+        <% } else  { %>
+        <li class="nav-item">
+        <% } %>
+          <h4><a class="nav-link" href="/projects"><i class="fab fa-elementor nav_colour"> Projects </i></a></h4>
+        </li>
+
+        <% if (title == "Services") { %>
+        <li class="nav-item active">
+        <% } else  { %>
+        <li class="nav-item">
+        <% } %>
+          <h4><a class="nav-link" href="/services"><i class="fas fa-cogs nav_colour"> Services </i></a></h4>
+        </li>
+
+        <% if (title == "Contact") { %>
+        <li class="nav-item active">
+        <% } else  { %>
+        <li class="nav-item">
+        <% } %>
+          <h4><a class="nav-link" href="/contact"><i class="fas fa-mobile-alt nav_colour"> Contact </i></a></h4>
+        </li>
+
+        <% if (title == "Books") { %>
+        <li class="nav-item active">
+        <% } else  { %>
+        <li class="nav-item">
+        <% } %>
+          <h4><a class="nav-link" href="/book-list"><i class="fas fa-book nav_colour"> Books </i></a></h4>
+        </li>
+
+        <% if(typeof displayName == 'string' && displayName) { %>
+          <h6><li class="navbar-text"><i class="fas fa-lg fa-user nav_colour nav_colour"> Welcome, <%= displayName %></i></li></h6>
+          <li class="nav-item"><a href="/logout" class="nav-link nav_colour">
+            <h4><i class="fas fa-lg fa-sign-out-alt nav_colour"> Logout</i></a></li></h4>
+        <% } else { %>
+          <li class="nav-item"><a href="/login" class="nav-link nav_colour">
+            <h4><i class="fas fa-lg fa-sign-in-alt nav_colour"> Login</i></a></li></h4>
+        <% } %>
+
+
+
+    </div>
+  </nav>
