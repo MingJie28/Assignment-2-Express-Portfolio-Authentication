@@ -3,6 +3,8 @@
 <%- include ../partials/main_nav.ejs %>
 
 <main class="container">
+<div class="jumbotron">
+    <h5 class="text">
     <!-- Message Area -->
     <% if(messages.length > 0) {%>
         <div class="alert alert-danger">
@@ -12,7 +14,7 @@
 
     <div class="row">
         <div class="offset-md-4 col-md-4">
-            <h1>Please Register</h1>
+            <h1>Register</h1>
             <form method="POST" autocomplete="off">
                 <fieldset class="form-group">
                     <label for="username">Username: </label>
@@ -52,7 +54,8 @@
             </form>
         </div>
     </div>
-
+    </h5>
+</div>
 
 </main>
 
