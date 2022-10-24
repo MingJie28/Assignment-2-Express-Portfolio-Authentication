@@ -37,6 +37,12 @@ body {
     background-color: aliceblue;
     padding-bottom: 20%;
   }
+
+  .text1{
+    padding-right: 7%;
+    background-color: aliceblue;
+    padding-bottom: 20%;
+  }
   
   .project{
     width:100%;
@@ -97,4 +103,7 @@ body {
     padding-top: 10%;
   }
   
+  tr{
+    background-color: white;
+  }
   
