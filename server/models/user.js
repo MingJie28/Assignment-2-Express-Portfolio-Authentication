@@ -26,7 +26,7 @@ let User = mongoose.Schema
             type: String,
             default: '',
             trim: true,
-            required: 'email address is required'
+            required: 'Email address is required'
        },
        displayName: 
        {

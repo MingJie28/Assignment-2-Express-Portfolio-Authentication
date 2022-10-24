@@ -21,46 +21,68 @@
                 <!-- Header Row-->
                 <tr class="d-flex">
                     <% if(typeof displayName == 'string' && displayName) { %>
-                        <th class="text-center col-2">Title</th>
-                        <th class="text-center col-2">Author</th>
-                        <th class="text-center col-1">Year</th>
-                        <th class="col-4">Description</th>
-                        <th class="text-center col-1">Price</th>
-                        <th class="text-center col-1"></th>
-                        <th class="text-center col-1"></th>
+                        <th class="text-center col-3">Contact Name</th>
+                        <th class="text-center col-3">Contact Number</th>
+                        <th class="text-center col-3">Email Address</th>
+                        <th class="text-center col-1.5"></th>
+                        <th class="text-center col-1.5"></th>
                     <% } else { %>
-                        <th class="text-center col-2">Title</th>
-                        <th class="text-center col-2">Author</th>
-                        <th class="text-center col-1">Year</th>
-                        <th class="col-6">Description</th>
-                        <th class="text-center col-1">Price</th>
+                        <th class="text-center col-3">Contact Name</th>
+                        <th class="text-center col-3">Contact Number</th>
+                        <th class="text-center col-3">Email Address</th>
                     <% } %>
                 </tr>
 
                 <!-- Repeatable Template Row -->
+                
+                <!-- sorting -->
+                <!-- create name array to store all the names in BusinessList -->
+                <% let name = []%>
+                <% for(let x = 0; x<BusinessList.length; x++){ %>
+                    <% name[x] = BusinessList[x].name.charAt(0) %> 
+                <% } %>
+
+
+                <% let newArray = []%>
+                <% let num = 0%>
+
+                <!-- forloop to build the newArray -->
+                <% for(let x = 0; x<name.length; x++){ %>
+                    <% let location = 0%>
+                    <% let largest = name[0] %>
+                    
+                    <!-- forloop to find the names in alphabetical order -->
+                    <% for(let y = 0; y<name.length; y++){ %>
+                        <% if(name[y] < largest) { %>
+                            <% largest = name[y] %>
+                            <% location = y %>
+                        <% } %>
+                    <% } %>
+
+                    <% newArray[x] = location %>
+                    <% name[location] = '\uffff' %>
+                <% } %>
+
+
 
                 <% for(let count = 0; count < BusinessList.length; count++) { %>
                     <tr class="d-flex">
                         <% if(typeof displayName == 'string' && displayName) { %>
-                            <td class="text-center col-2"><%= BusinessList[count].name %></td>
-                            <td class="text-center col-2"><%= BusinessList[count].author %></td>
-                            <td class="text-center col-1"><%= BusinessList[count].published %></td>
-                            <td class="col-4"><%= BusinessList[count].description %></td>
-                            <td class="text-center col-1"><%= BusinessList[count].price %></td>            
-                            <td class="text-center col-1">
+                            <td class="text-center col-3"><%= BusinessList[newArray[count]].name %></td>
+                            <td class="text-center col-3"><%= BusinessList[newArray[count]].number %></td>
+                            <td class="text-center col-3"><%= BusinessList[newArray[count]].email %></td>           
+                            <td class="text-center col-1.5">
                                 <a href="/business-list/edit/<%= BusinessList[count]._id %>" class="btn btn-primary btn-sm">
                                 <i class="fas fa-pencil-alt"></i> Edit</a>
                             </td>
-                            <td class="text-center col-1">
+                            <td class="text-center col-1.5">
                                 <a href="/business-list/delete/<%= BusinessList[count]._id %>" class="btn btn-danger btn-sm">
                                 <i class="fas fa-trash-alt"></i> Delete</a>
                             </td>
                          <% } else { %>
-                            <td class="text-center col-2"><%= BusinessList[count].name %></td>
-                            <td class="text-center col-2"><%= BusinessList[count].author %></td>
-                            <td class="text-center col-1"><%= BusinessList[count].published %></td>
-                            <td class="col-6"><%= BusinessList[count].description %></td>
-                            <td class="text-center col-1"><%= BusinessList[count].price %></td>  
+                            <td class="text-center col-3"><%= BusinessList[newArray[count]].name %></td>
+                            <td class="text-center col-3"><%= BusinessList[newArray[count]].number %></td>
+                            <td class="text-center col-3"><%= BusinessList[newArray[count]].email %></td>
                          <% } %>
                     </tr>
                 <% } %>

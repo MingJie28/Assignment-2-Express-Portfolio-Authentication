@@ -33,8 +33,8 @@ module.exports.displayAddPage = (req, res, next) => {
 module.exports.processAddPage = (req, res, next) => {
     let newBusness = Business({
         "name": req.body.name,
-        "author": req.body.author,
-        "published": req.body.published,
+        "number": req.body.number,
+        "email": req.body.email,
         "description": req.body.description,
         "price": req.body.price
     });
@@ -78,8 +78,8 @@ module.exports.processEditPage = (req, res, next) => {
     let updatedBusiness = Business({
         "_id": id,
         "name": req.body.name,
-        "author": req.body.author,
-        "published": req.body.published,
+        "number": req.body.number,
+        "email": req.body.email,
         "description": req.body.description,
         "price": req.body.price
     });
