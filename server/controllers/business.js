@@ -5,33 +5,33 @@ let mongoose = require('mongoose');
 let jwt = require('jsonwebtoken');
 
 // create a reference to the model
-let Book = require('../models/book');
+let Business = require('../models/business');
 
-module.exports.displayBookList = (req, res, next) => {
-    Book.find((err, bookList) => {
+module.exports.displayBusinessList = (req, res, next) => {
+    Business.find((err, businessList) => {
         if(err)
         {
             return console.error(err);
         }
         else
         {
-            //console.log(BookList);
+            //console.log(BusinessList);
 
-            res.render('book/list', 
-            {title: 'Books', 
-            BookList: bookList, 
+            res.render('business/list', 
+            {title: 'Business Contacts', 
+            BusinessList: businessList, 
             displayName: req.user ? req.user.displayName : ''});      
         }
     });
 }
 
 module.exports.displayAddPage = (req, res, next) => {
-    res.render('book/add', {title: 'Add Book', 
+    res.render('business/add', {title: 'Add Contact', 
     displayName: req.user ? req.user.displayName : ''})          
 }
 
 module.exports.processAddPage = (req, res, next) => {
-    let newBook = Book({
+    let newBusness = Business({
         "name": req.body.name,
         "author": req.body.author,
         "published": req.body.published,
@@ -39,7 +39,7 @@ module.exports.processAddPage = (req, res, next) => {
         "price": req.body.price
     });
 
-    Book.create(newBook, (err, Book) =>{
+    Business.create(newBusness, (err, Business) =>{
         if(err)
         {
             console.log(err);
@@ -47,8 +47,8 @@ module.exports.processAddPage = (req, res, next) => {
         }
         else
         {
-            // refresh the book list
-            res.redirect('/book-list');
+            // refresh the business list
+            res.redirect('/business-list');
         }
     });
 
@@ -57,7 +57,7 @@ module.exports.processAddPage = (req, res, next) => {
 module.exports.displayEditPage = (req, res, next) => {
     let id = req.params.id;
 
-    Book.findById(id, (err, bookToEdit) => {
+    Business.findById(id, (err, businessToEdit) => {
         if(err)
         {
             console.log(err);
@@ -66,7 +66,7 @@ module.exports.displayEditPage = (req, res, next) => {
         else
         {
             //show the edit view
-            res.render('book/edit', {title: 'Edit Book', book: bookToEdit, 
+            res.render('business/edit', {title: 'Edit Contact', business: businessToEdit, 
             displayName: req.user ? req.user.displayName : ''})
         }
     });
@@ -75,7 +75,7 @@ module.exports.displayEditPage = (req, res, next) => {
 module.exports.processEditPage = (req, res, next) => {
     let id = req.params.id
 
-    let updatedBook = Book({
+    let updatedBusiness = Business({
         "_id": id,
         "name": req.body.name,
         "author": req.body.author,
@@ -84,7 +84,7 @@ module.exports.processEditPage = (req, res, next) => {
         "price": req.body.price
     });
 
-    Book.updateOne({_id: id}, updatedBook, (err) => {
+    Business.updateOne({_id: id}, updatedBusiness, (err) => {
         if(err)
         {
             console.log(err);
@@ -92,8 +92,8 @@ module.exports.processEditPage = (req, res, next) => {
         }
         else
         {
-            // refresh the book list
-            res.redirect('/book-list');
+            // refresh the business list
+            res.redirect('/business-list');
         }
     });
 }
@@ -101,7 +101,7 @@ module.exports.processEditPage = (req, res, next) => {
 module.exports.performDelete = (req, res, next) => {
     let id = req.params.id;
 
-    Book.remove({_id: id}, (err) => {
+    Business.remove({_id: id}, (err) => {
         if(err)
         {
             console.log(err);
@@ -110,7 +110,7 @@ module.exports.performDelete = (req, res, next) => {
         else
         {
              // refresh the book list
-             res.redirect('/book-list');
+             res.redirect('/business-list');
         }
     });
 }
