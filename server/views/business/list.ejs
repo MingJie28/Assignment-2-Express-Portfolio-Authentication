@@ -1,3 +1,4 @@
+<!-- list.ejs, Ming Jie Wang, 301188372, Oct.24,2022 -->
 <%- include ../partials/header.ejs %>
 
 <%- include ../partials/main_nav.ejs %>
@@ -50,7 +51,7 @@
                 <% for(let x = 0; x<name.length; x++){ %>
                     <% let location = 0%>
                     <% let largest = name[0] %>
-                    
+
                     <!-- forloop to find the names in alphabetical order -->
                     <% for(let y = 0; y<name.length; y++){ %>
                         <% if(name[y] < largest) { %>
